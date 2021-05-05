@@ -1,32 +1,37 @@
-def accelerate
-  puts "Stepping on the gas"
-  puts "Speeding up"
-end
+class Vehicle
 
-def sound_horn
-  puts "Pressing the horn button"
-  puts "Beep Beep!"
-end
+  attr_accessor :odometer, :gas_used
 
-def use_headlights(brightness = "low-beams")
-  puts "Turning on the #{brightness} headlights"
-  puts "Watch out for the deer!"
-end
-
-
-def mileage(miles_driven, gas_used)
-  if gas_used == 0
-    return 0.0
+  def accelerate
+    puts "Floor it!"
   end
-  miles_driven/gas_used
+
+  def sound_horn
+    puts "Beep! Beep!"
+  end
+
+  def steer
+    puts "Turn front 2 wheels."
+  end
+
+  def milage
+    return @odometer / @gas_used
+  end
+
 end
 
-trip_mileage = mileage(400,12)
-puts "You got #{trip_mileage} MPG on this trip."
+class Car < Vehicle
+end
 
-lifetime_mileage = mileage(11432,366)
-puts "This car averages #{lifetime_mileage} MPG."
+class Truck < Vehicle
 
-sound_horn
-accelerate
-use_headlights("brights")
+  attr_accessor :cargo
+
+  def load_bed(content)
+    puts "Securing #{content} in teh truck bed."
+    @cargo = content
+  end
+end
+
+class Motorcycle < Vehicle
+end
