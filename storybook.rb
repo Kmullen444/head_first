@@ -30,6 +30,9 @@ class Animal
 end
 
 class Dog < Animal
+  def to_s
+    "#{@name} the dogm age #{@age}."
+  end 
 end
 
 class Bird < Animal
@@ -44,5 +47,11 @@ class Cat < Animal
   end
 end
 
+class Armadillo < Animal
+  def move(destination)
+    puts "#{@name} unrolls!"
+    super
+  end
+end
 
 
