@@ -1,60 +1,48 @@
-class Bird
-  def talk (name) 
-    puts "#{name} says Chirp! Chirp"
-  end
+class Animal
 
-  def move(name, destination)
-    puts "#{name} flies to the #{destination}."
-  end
-end
-
-class Dog
   attr_reader :name, :age
 
-  def name=(value)
+  def name= (value)
     if value == ""
       raise "Name can't be blank!"
     end
     @name = value
   end
 
-  def age=(value)
+  def age= (value)
     if value < 0
       raise "An age of #{value} isn't valid!"
     end
     @age = value
   end
-      
-  def report_age
-    puts "#{@name} is #{@age} years old."
+
+  def move(destination)
+    puts "#{@name} runs to the #{destination}!"
   end
 
-  def talk
+  def talk 
     puts "#{@name} says Bark!"
   end
 
-  def move(destination)
-    puts "#{@name} runs to the #{destination}."
+  def report_age
+    puts "#{@name} is #{@age} years old."
   end
 end
 
-class Cat
-  def talk (name) 
-    puts "#{name} says Meow!"
-  end
+class Dog < Animal
+end
 
-  def move(name, destination)
-    puts "#{name} runs to the #{destination}."
+class Bird < Animal
+  def talk
+    puts "#{@name} says Chirp! Chirp!"
+  end
+end
+
+class Cat < Animal
+  def talk
+    puts "#{@name} says Mewo!"
   end
 end
 
 
-dog = Dog.new
-dog_name = "Lucy"
-dog.talk(dog_name)
-dog.move(dog_name, "fence")
 
-cat = Cat.new
-cat_name = "Fluffly"
-cat.talk(cat_name)
-cat.move(cat_name, "litter box")
